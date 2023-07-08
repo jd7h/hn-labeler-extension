@@ -1,0 +1,24 @@
+{
+    "manifest_version":3,
+    "version":"1.0",
+    "author":"Judith van Stegeren",
+    "description":"Browser extension for labelling HackerNews items: -1 or 1",
+    "name":"hn-labeler",
+    "content_scripts":[
+        {
+            "matches":["*://news.ycombinator.com/*"],
+            "js":["main.js"],
+            "css": ["assets/main.css"]
+        }
+    ],
+    "web_accessible_resources":[
+        {
+            "resources": ["data/hn-items.json", "assets/thumbs_up.svg", "assets/thumbs_down.svg", "assets/neutral.svg"],
+            "matches": ["*://news.ycombinator.com/*"]
+        }
+    ],
+    "permissions": ["storage", "unlimitedStorage"],
+    "host_permissions":[
+        "*://news.ycombinator.com/*"
+    ]
+}
